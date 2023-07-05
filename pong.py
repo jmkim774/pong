@@ -48,8 +48,7 @@ class Simulate:
         # MEMBER-2
         # Use the draw_obj() below to draw the ball and players/paddles.
         # e.g., self.ball = self.draw_obj(...)
-        self.ball = self. draw_obj
-        
+        self.ball = self.draw_obj(self.pong.ball)
         self.window.update()
         self.bind_keys()
 
@@ -58,8 +57,11 @@ class Simulate:
         # MEMBER-1
         # add four key-events: w,s keys: playerL_up:down, Up,Down arrows: PlayerR_up:down
         # e.g. self.window.onkey(<func_to_run>, <key:string>)
-                
-    
+        self.window.onkey(self.pong.playerL_up, "w")
+        self.window.onkey(self.pong.playerL_down, "s")
+        self.window.onkey(self.pong.playerR_up, "Up")
+        self.window.onkey(self.pong.playerR_down, "Down")
+        
     def draw_obj(self, obj):
         ob = t.Turtle()
         ob.speed(0)
