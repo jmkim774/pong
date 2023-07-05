@@ -20,18 +20,22 @@ class Pong:
     # MEMBER-3/4
     # player move functions
     def playerL_up(self):
+        self.playerL.pos[1] += 10
         writer.clear(); writer.write("playerL_up"+str(self.playerL.pos))
 
     def playerR_up(self):
+        self.playerR.pos[1] += 10
         writer.clear(); writer.write("playerR_up"+str(self.playerR.pos))
 
     def playerL_down(self):
+        self.playerL.pos[1] -= 10
         writer.clear(); writer.write("playerL_down"+str(self.playerL.pos))
-
+       
+    
     def playerR_down(self):
+        self.playerR.pos[1] -=10
         writer.clear(); writer.write("playerR_down"+str(self.playerR.pos))
-
-
+        
 class Simulate:
     def __init__(self, pong):
         self.pong = pong
@@ -45,7 +49,6 @@ class Simulate:
         # Use the draw_obj() below to draw the ball and players/paddles.
         # e.g., self.ball = self.draw_obj(...)
         self.ball = self.draw_obj(self.pong.ball)
-
         self.window.update()
         self.bind_keys()
 
@@ -58,7 +61,7 @@ class Simulate:
         self.window.onkey(self.pong.playerL_down, "s")
         self.window.onkey(self.pong.playerR_up, "Up")
         self.window.onkey(self.pong.playerR_down, "Down")
-
+        
     def draw_obj(self, obj):
         ob = t.Turtle()
         ob.speed(0)
@@ -72,6 +75,5 @@ class Simulate:
 
 pong = Pong()
 sim = Simulate(pong)
-
 t.done()
 
