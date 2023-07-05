@@ -45,7 +45,8 @@ class Simulate:
         # Use the draw_obj() below to draw the ball and players/paddles.
         # e.g., self.ball = self.draw_obj(...)
         self.ball = self.draw_obj(self.pong.ball)
-
+        self.playerL = self.draw_obj(self.pong.playerL)
+        self.playerR = self.draw_obj(self.pong.playerR)
         self.window.update()
         self.bind_keys()
 
